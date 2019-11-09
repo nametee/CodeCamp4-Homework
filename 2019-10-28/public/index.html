@@ -50,9 +50,9 @@
                     error:  (xhr,status,error) => alert(status + '\n' + error)
                 }); 
             });
-            $('#countFields').click(()=>{
-                let list = JSON.parse($('#bodyData').val()); 
-                $.get('/countFields',list,function(content,status){alert(content);});
+            $('#countFields').click(()=>{ 
+                let list = JSON.parse($('#bodyData').val());  
+                $.post('/countFields',list,function(content,status){alert(content);});
             }); 
         });
     </script>
@@ -109,7 +109,7 @@
     <button type="button" id="addNumber">Add Number</button>
     <button type="button" id="updateNumber">Update Number</button>
     <button type="button" id="deleteNumber">Delete Number</button><br>
-    Body data : <input type="text" id="bodyData" value='{"a":"1","b":"2","c","3"}'> 
+    Body data : <input type="text" id="bodyData" value='{"a":"1","b":"2","c":"3"}'> 
     <button type="button" id="countFields">Count Fields Body</button>
     <hr>
 
