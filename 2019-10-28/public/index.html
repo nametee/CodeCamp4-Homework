@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>express homework</title> 
+    <script  src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $('#plusByParameter').click(function(){
+                let a = $('#plusByParameter-a').val();
+                let b = $('#plusByParameter-b').val();
+                $.get('/plus/' + a + '/' + b,function(content,status){alert(content);});
+            }); 
+            $('#checkEvenNumber').click(function(){
+                let num = $('#checkNum').val();  
+                $.ajax({
+                    url: '/checkEvenNumber/' + num,
+                    method :"get",
+                    success : (content,status) => {
+                        alert(content + '\n' + status);
+                    }, 
+                    error : (xhr,status,error) => { 
+                        alert(status + '\n' + error);
+                    }
+                }); 
+            }); 
+            $('#addNumber').click(()=>{
+                let num = $('#inputNum').val();
+                $.post('/number',{"number":num},function(content,status){alert(content);});
+            });
+            $('#updateNumber').click(()=>{
+                let num = $('#inputNum').val();
+                let newNum = $('#changeNum').val(); 
+                $.ajax({
+                    url:'/number',
+                    type: 'PUT',
+                    data: {"number":num,"newNumber":newNum}, 
+                    success: (content,status) => alert(content),
+                    error:  (xhr,status,error) => alert(status + '\n' + error)
+                });
+            });
+            $('#deleteNumber').click(()=>{
+                let num = $('#inputNum').val(); 
+                $.ajax({
+                    url:'/number',
+                    type: 'DELETE',
+                    data: {"number":num}, 
+                    success: (content,status) => alert(content),
+                    error:  (xhr,status,error) => alert(status + '\n' + error)
+                }); 
+            });
+            $('#countFields').click(()=>{
+                let list = JSON.parse($('#bodyData').val()); 
+                $.get('/countFields',list,function(content,status){alert(content);});
+            }); 
+        });
+    </script>
+</head>
+<body> 
+    <form action="http://localhost:3000/static" method="get" id="staticForm" target="_blank">
+        <h4>Get Static</h4> 
+        <button type="submit" id="static" >Get Static</button>
+    </form>
+    <hr>
+
+    <form action="http://localhost:3000/staticJSON" method="get" id="staticJSONForm" target="_blank">
+        <h4>Get Static JSON</h4>
+        <button type="submit" id="staticJSON" >Get Static JSON</button>
+    </form>
+    <hr>
+
+    <form action="http://localhost:3000/echo" method="get" id="echoForm" target="_blank">
+        <h4>Get echo</h4>
+        Text : <input type="text" id="text" name="text" value="Heyyyy">
+        <button type="submit" id="echo" >Get echo</button>
+    </form>
+    <hr>
+    
+    <form action="http://localhost:3000/plus" method="get" id="plusForm" target="_blank">
+        <h4>Get plus</h4>
+        a : <input type="text" id="a" name="a" value="3" ><br>
+        b : <input type="text" id="b" name="b" value="5" >
+        <button type="submit" id="plus" >Get plus</button>
+    </form>
+    <hr> 
+
+    <form action="http://localhost:3000/plusByJSON" method="get" id="plusByJSONForm" target="_blank">
+        <h4>Get plus by JSON</h4>
+        JSON Text : <input type="text" id="jsonText" name="jsonText" value='{"a":"3","b":"5"}' >
+        <button type="submit" id="plusByJSON" >Get plus by JSON</button>
+    </form>
+    <hr> 
+
+    <h4>Get plus by parameter</h4>
+    a : <input type="text" id="plusByParameter-a" value="6" ><br>
+    b : <input type="text" id="plusByParameter-b" value="7" > 
+    <button type="button" id="plusByParameter" >Get plus by parameter</button> 
+    <hr>
+ 
+    <h4>Get checkEvenNumber</h4> 
+    Number : <input type="text" id="checkNum" value="3" > 
+    <button type="button" id="checkEvenNumber" >Get checkEvenNumber</button>
+    <hr>
+
+    <h4>Input Number</h4>
+    Number : <input type="text" id="inputNum"> 
+    New Number : <input type="text" id="changeNum"> 
+    <button type="button" id="addNumber">Add Number</button>
+    <button type="button" id="updateNumber">Update Number</button>
+    <button type="button" id="deleteNumber">Delete Number</button><br>
+    Body data : <input type="text" id="bodyData" value='{"a":"1","b":"2","c","3"}'> 
+    <button type="button" id="countFields">Count Fields Body</button>
+    <hr>
+
+</body>
+</html>
