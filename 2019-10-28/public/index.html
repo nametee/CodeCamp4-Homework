@@ -12,6 +12,12 @@
                 let b = $('#plusByParameter-b').val();
                 $.get('/plus/' + a + '/' + b,function(content,status){alert(content);});
             }); 
+            // plusBuJSON for click 
+            /*
+            $('#plusBuJSON').click(function(){
+                let data =  eval("(" + $('#jsonText').val() + ")");
+                $.get('/plusByJSON?' + data,function(content,status){alert(content);}); 
+            });*/
             $('#checkEvenNumber').click(function(){
                 let num = $('#checkNum').val();  
                 $.ajax({
