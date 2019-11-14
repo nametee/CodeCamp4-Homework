@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework 2019-10-29 / 09</title>
+</head>
+<body>
+        <a href="https://programming.in.th/task/rev2_problem.php?pid=0009" target="_blank">Link 09[ABC]</a><hr>
+        Numbers : <input type="text" id="numbers"><br>
+        Order Text [ABC or BCA ...]: <input type="text" id="order">
+        <button type="button" id="orderNumber" onclick="orderNumber()" >Order</button> 
+
+        <script>
+            const orderNumber = () =>{
+                // C > B > A
+                let numbers = document.getElementById('numbers').value.split(' ').sort();
+                let order = document.getElementById('order').value.split('');
+                let result = "";
+                order.forEach((item,index) => {
+                    switch(item.toUpperCase()){
+                        case "C":  result += numbers[2] + " "; break;
+                        case "B":  result += numbers[1] + " "; break;
+                        case "A":  result += numbers[0] + " "; break;
+                    } 
+                });
+                alert(result);
+            }
+        </script>
+</body>
+</html>

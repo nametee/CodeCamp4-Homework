@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework 2019-10-29 / 02</title>
+</head>
+<body>
+        <a href="https://programming.in.th/task/rev2_problem.php?pid=0002" target="_blank">Link 02[Min Max]</a><hr>
+        <button type="button" id="startInput" onclick="startInput()">Start input numbers</button>
+        
+        <script>
+            const startInput = () =>{
+                let index = parseInt(prompt("How many numbers"));
+                if (index > 1000 ){
+                    alert("Maximum numbers is 1,000");
+                    return false;
+                }else if(index <1){ 
+                    alert("Minimum numbers is 1");
+                    return false;
+                } 
+                let min , max; 
+                let i = 1;
+                while(i <= index){
+                    let num = parseInt(prompt("No." + i)); 
+                    if(num > 2000000000 ){
+                        alert("Maximum number is 2,000,000,000");
+                    }
+                    else if (num < -2000000000 ){  
+                        alert("Minimum number is -2,000,000,000");
+                    }else{ 
+                        min =  (min === undefined) ? num : (min > num) ? num : min;
+                        max =  (max === undefined) ? num : (max < num) ? num : max;
+                        i++;
+                    }  
+                } 
+                alert("Min : " + min + "\nMax : " + max);
+            }
+        </script>
+</body>
+</html>

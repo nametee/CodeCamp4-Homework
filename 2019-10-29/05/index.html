@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework 2019-10-29 / 05</title>
+</head>
+<body>
+    <a href="https://programming.in.th/task/rev2_problem.php?pid=0005" target="_blank">Link 05[Pythagorus]</a><hr>
+    <img src="https://programming.in.th/task/img/0005/0005-1.gif" alt="Pythagorus"><hr>
+    a : <input type="text" id="input1"><br>
+    b : <input type="text" id="input2"><br>
+    c : <span id="result"></span><br>
+    <button type="button" id="calculate" onclick="calculate()">Calculate</button>
+    <script>
+        const calculate = () =>{
+            let a = parseInt(document.getElementById('input1').value);
+            document.getElementById('input1').value = a.toFixed(6);
+            let b = parseInt(document.getElementById('input2').value);
+            document.getElementById('input2').value = b.toFixed(6); 
+            document.getElementById('result').innerText = Math.sqrt(a*a + b*b).toFixed(6);
+        }
+    </script>
+    
+        
+</body>
+</html>

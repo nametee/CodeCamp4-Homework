@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework 2019-10-29 / 01</title>
+</head>
+<body>
+    <a href="https://programming.in.th/task/rev2_problem.php?pid=0001" target="_blank">Link 01[Grading]</a><hr>
+    Score : <input type="text" id="score"><br>
+    Midterm scores : <input type="text" id="mid"><br>
+    Final scores : <input type="text"  id="final"><br>
+    <button type="button" id="getGrade" onclick="getGrade()">Grade ?</button>
+    <script>
+        const getGrade = () =>{
+            let score = parseInt(document.getElementById('score').value);
+            let mid = parseInt(document.getElementById('mid').value);
+            let final = parseInt(document.getElementById('final').value);
+            if (score > 30 ){
+                alert("Score limit 30 points")
+                return false;
+            }else if(score < 0){ 
+                alert("Score minimum 0 points")
+                return false;
+            }
+            if (mid > 30  ){
+                alert("Midterm Scores limit 30 points")
+                return false;
+            }else if(mid < 0){ 
+                alert("Midterm Scores minimum 0 points")
+                return false;
+            }
+            if (final > 40){
+                alert("Final Scores limit 40 points")
+                return false;
+            }else if(final < 0){ 
+                alert("final Scores minimum 0 points")
+                return false;
+            } 
+            let total = score + mid + final;
+            alert("Total Scores : " + total +
+                "\nGrade : " + (total  < 50 ? "F" :
+                total < 55 ? "D" : 
+                total < 60 ? "D+" : 
+                total < 65 ? "C" : 
+                total < 70 ? "C+" : 
+                total < 75 ? "B" : 
+                total < 80 ? "B+" : 
+                "A"));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework 2019-10-29 / 08</title>
+</head>
+<body>
+        <a href="https://programming.in.th/task/rev2_problem.php?pid=0008" target="_blank">Link 08[X2]</a><hr>
+        <hr>
+        <h3>( X1 + X2 ) / 2 = S  </h3> 
+        <hr>
+        X1 : <input type="text" id="x1"><br>
+        X2 : <span id="X2"></span><br>
+        S : <input type="text" id="s"><br>
+        <button type="button" id="calculate" onclick="calculate()">calculate</button>
+        <script>
+            const calculate = () =>{
+                let x1 = parseInt(document.getElementById('x1').value);
+                let s = parseInt(document.getElementById('s').value);
+                document.getElementById('X2').innerText = (s * 2) - x1;
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework 2019-10-29 / 14</title>
+</head>
+<body>
+    <a href="https://programming.in.th/task/rev2_problem.php?pid=0014" target="_blank">Link 14[Great Common Divisor]</a><hr>
+    Number 1: <input type="text" id="number1"><br>
+    Number 2: <input type="text" id="number2"><br>
+    <button type="button" id="calculate" onclick="gcdNumbers()">Great Common Divisor</button>
+    
+    <script>
+        const gcdNumbers = ()=> {
+            let x =  parseInt(document.getElementById('number1').value); 
+            let y =  parseInt(document.getElementById('number2').value); 
+            if ((typeof x !== 'number') || (typeof y !== 'number'))  {
+                alert('Input is not number ');
+                return false;
+            }
+            x = Math.abs(x);
+            y = Math.abs(y);
+            while(y) {
+                var t = y;
+                y = x % y;
+                x = t;
+            }
+            alert(x);
+        }  
+    </script>
+</body>
+</html>

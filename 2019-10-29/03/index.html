@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework 2019-10-29 / 03</title>
+</head>
+<body>
+        <a href="https://programming.in.th/task/rev2_problem.php?pid=0003" target="_blank">Link 03[Matrix Addition]</a><hr>
+        <button type="button" id="startInput" onclick="startInput()">Start</button>
+        <h3>Matrix</h3>
+        <h4 id="size"> </h4>
+        <h5>Matrix 1</h5>
+        <div id="inputNumber1"> 
+        </div>
+        <hr>
+        <h5>Matrix 2</h5>
+        <div id="inputNumber2"> 
+        </div>
+        <hr>
+        <h5>Result of matrix add</h5>
+        <div id="result"> 
+        </div>
+        <hr>
+        <script>
+            const startInput = () => { 
+                let matrix =  prompt("Row and column for matrix [key row + space + column : ex =(3 5)]").split(' '); 
+                let row = parseInt(matrix[0]);
+                let col = parseInt(matrix[1]);
+                document.getElementById("size").innerText = "Row X Column : " + row +  " X " + col; 
+                let array = [];
+                let result ="";
+                let matrix1 = "";
+                let matrix2 = "";
+                let i = 1;
+                while(i<= row){
+                    let input = prompt("Matrix 1 add row " + i + " [key item1 + space + item2 + space + item3 + ... : ex =(1 2 3)]");
+                    let listData =  input.split(' ');
+                    if (listData.length !== col) {
+                        alert("Input item " + col + " numbers") 
+                    }else{ 
+                        matrix1 += input + "<br>"; 
+                        array.push(listData);
+                        document.getElementById("inputNumber1").innerHTML = matrix1;
+                        i++;
+                    }
+                } 
+                i=1;
+                while(i<= row){
+                    let input = prompt("Matrix 2 add row " + i + " [key item1 + space + item2 + space + item3 + ... : ex =(1 2 3)]");
+                    let listData = input.split(' ');
+                    if (listData.length !== col) {
+                        alert("Input item " + col + " numbers") 
+                    }else{ 
+                        matrix2 += input + "<br>";  
+                        document.getElementById("inputNumber2").innerHTML = matrix2;
+                        let rowData = "";
+                        listData.forEach((item,index)=>{ 
+                            array[i -1].fill( parseInt(array[i -1][index]) + parseInt(item) , index,index );
+                            rowData += (parseInt(array[i -1][index]) + parseInt(item)  ) + " ";
+                        }); 
+                        result += rowData + "<br>";
+                        i++;
+                    }
+                } 
+                document.getElementById("result").innerHTML = result;
+            }    
+        </script>
+</body>
+</html>

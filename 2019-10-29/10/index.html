@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework 2019-10-29 / 10</title>
+</head>
+<body>
+        <a href="https://programming.in.th/task/rev2_problem.php?pid=0010" target="_blank">Link 10[Trik]</a><hr>
+        Step : <input type="text" id="step"><br>
+        <button type="button" id="calculate" onclick="calculate()">Find</button>
+
+        <script>
+            const calculate = () =>{
+                let result = "1";
+                let step = document.getElementById('step').value.split(''); 
+                for(let i = 0;i<step.length;i++){ 
+                    switch(step[i].toUpperCase()){
+                        case "A" : 
+                            result = result === "1" ? "2" : result === "2" ? "1" : result;  
+                            break;
+                        case "B" :
+                            result = result === "2" ? "3" : result === "3" ? "2" : result;  
+                            break;
+                        case "C" :
+                            result = result === "1" ? "3" : result === "3" ? "1" : result;  
+                            break;
+                    }
+                }
+                alert(result)
+            }
+        </script>
+</body>
+</html>

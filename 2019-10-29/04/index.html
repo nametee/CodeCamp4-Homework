@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework 2019-10-29 / 04</title>
+</head>
+<body>
+    <a href="https://programming.in.th/task/rev2_problem.php?pid=0004" target="_blank">Link 04[Character Checker]</a><hr>
+    Text : <input type="text" id="input">
+    <button type="button" id="check" onclick="check()">Check</button>
+
+    <script>
+        const check = () =>{
+            let input = document.getElementById('input').value;
+            switch(input){
+                case input.toUpperCase(): 
+                    alert("All Capital Letter");
+                    break;
+                case input.toLowerCase(): 
+                    alert("All Small Letter");
+                    break;
+                default : alert("Mix");
+            } 
+        }
+    </script>
+
+
+</body>
+</html>
