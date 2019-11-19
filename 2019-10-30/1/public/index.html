@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MVC</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <button type="button" onclick="get()" target="_blank">get</button><br>
+    <button type="button" onclick="add()" target="_blank">add</button><br>
+    <button type="button" onclick="update()" target="_blank">update</button><br>
+    <button type="button" onclick="remove()" target="_blank">delete</button>
+    <script>
+        const get = () =>{ 
+            axios.get('/data/2')
+            .then(function (response) {
+                // handle success 
+                console.log(response.data);
+                alert(Object.keys(response.data) +"\n" +Object.values(response.data));
+            })
+            .catch(function (error) {
+                // handle error
+                //console.log(error);
+                alert("Error find data ");
+            })
+            .finally(function () {
+                // always executed
+            }); 
+        }
+        const add = () =>{  
+            axios.post('/data',
+                {name:"test",job:"test"})
+            .then(function (response) {
+                // handle success
+                console.log(response);
+                alert("Success");
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+        }
+
+        const update = () =>{  
+            axios.put('/data/2',
+                {name:"test1",job:"test1"})
+            .then(function (response) {
+                // handle success
+                console.log(response);
+                alert("Success");
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+        }
+
+        const remove = () =>{  
+            axios.put('/data/2')
+            .then(function (response) {
+                // handle success
+                console.log(response);
+                alert("Success");
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+        } 
+
+    </script>
+</body>
+</html>
