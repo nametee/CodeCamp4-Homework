@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+</head>
+<body>
+    <h2>Boats</h2>
+    ID : <input type="text" id="boatID"><br>
+    Name : <input type="text" id="boatName"><br>
+    Color : <input type="text" id="boatColor">
+    <hr>
+    <h3>Get Boat</h3> 
+    <button type="button" id="getBoat" onclick="getBoat()">Get all</button>
+    <button type="button" id="getBoatByName" onclick="getBoatByName()">Get by name</button>
+    <button type="button" id="getBoatByColor" onclick="getBoatByColor()">Get by color</button>
+    <button type="button" id="getBoatByParams" onclick="getBoatByParams()">Get by name and color</button>
+    <h3>Add New Boat</h3>
+    <button type="button" id="addBoat" onclick="addBoat()">Add boat</button> 
+    <h3>Update Boat</h3>
+    <button type="button" id="updateBoat" onclick="updateBoat()">Update boat</button> 
+    <h3>Replace Boat</h3>
+    <button type="button" id="replaceBoat" onclick="replaceBoat()">Replace boat</button> 
+    <h3>Remove Boat</h3>
+    <button type="button" id="removeBoat" onclick="removeBoat()">Remove boat</button>
+    <hr> 
+
+    <h2>Sailors</h2>
+    ID : <input type="text" id="sailorID"><br>
+    Name : <input type="text" id="sailorName"><br>
+    Rating : <input type="text" id="sailorRating"><br>
+    Age : <input type="text" id="sailorAge">
+    <hr>
+    <h3>Get Sailors</h3> 
+    <button type="button" id="getSailor" onclick="getSailor()">Get all</button>
+    <h3>Add Sailors</h3> 
+    <button type="button" id="addSailor" onclick="addSailor()">Add Sailor</button>
+    <h3>Update Sailors</h3> 
+    <button type="button" id="updateSailor" onclick="updateSailor()">Update Sailor</button>
+    <h3>Replace Sailors</h3> 
+    <button type="button" id="replaceSailor" onclick="replaceSailor()">Replace Sailor</button>
+    <h3>Remove Sailors</h3> 
+    <button type="button" id="removeSailor" onclick="removeSailor()">Remove Sailor</button>
+    <hr>
+
+    <h2>Reserves</h2>
+    Day :<input type="date" id="day">
+    <h3>Get Reserves</h3>
+    <button type="button" id="getReserve" onclick="getReserve()">Get all</button>
+    <h3>Add Reserves</h3>
+    <button type="button" id="addReserve" onclick="addReserve()">Add Reserves</button>
+    <h3>Update Reserves</h3>
+    <button type="button" id="updateReserve" onclick="updateReserve()">Update Reserves</button>
+    <h3>Replace Reserves</h3>
+    <button type="button" id="replaceReserve" onclick="replaceReserve()">Replace Reserves</button>
+    <h3>Remove Reserves</h3>
+    <button type="button" id="removeReserve" onclick="removeReserve()">Remove Reserves</button>
+    <hr>
+
+
+    
+</body>
+</html>
