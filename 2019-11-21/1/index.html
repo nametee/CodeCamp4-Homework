@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework 1</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel"> 
+        class App extends React.Component { 
+
+            state = {
+                countSecond : 0,
+                hour: "00",
+                minute: "00",
+                second: "00", 
+                counting: false,
+                timer: null
+            } 
+
+            count = () => {  
+                let num = this.state.countSecond 
+                if (this.state.counting) {
+                    num += 1
+                    let hh = this.showNum( Math.floor(( num / 60 ) / 60)) 
+                    let mm = this.showNum( Math.floor(( num / 60 )) % 60)
+                    let ss = this.showNum( num % 60) 
+
+                    this.setState({
+                        countSecond: num,
+                        hour: hh,
+                        minute: mm,
+                        second: ss
+                    })  
+                }
+            }
+
+            showNum = num =>  `${ (num > 9 ? "" : "0" ) + num }` 
+
+            handleStart = () => {
+                this.setState(state => ({ counting : true})  )  
+            }
+            handlePause = () => { 
+                this.setState( state => ({ counting: !state.counting }) ) 
+            }
+            handleReset = () => {   
+                this.setState({
+                    countSecond : 0,
+                    hour: "00",
+                    minute: "00",
+                    second: "00", 
+                    counting: false
+                })
+            }
+ 
+            render = () => {
+                return (
+                    <div>
+                        <p>{ this.state.hour + ":" + this.state.minute + ":" + this.state.second }</p>
+                        <button 
+                            onClick={ this.handleStart }
+                        >
+                            start
+                        </button>
+                        <button 
+                            onClick={ this.handlePause }
+                        >
+                            pause
+                        </button>
+                        <button 
+                            onClick={ this.handleReset }
+                        >
+                            resset
+                        </button>
+                    </div>
+                )
+            }
+            
+            componentDidMount = () => {
+                let timer =   setInterval(this.count,1000)
+                this.setState({timer})
+
+            }
+            componentWillUnmount = () => {  
+                clearInterval(this.state.timer) 
+            }
+        }
+        ReactDOM.render(
+            <App  />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>
